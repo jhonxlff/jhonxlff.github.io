@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+       CONFIGURAÇÕES DO CLIENTE — edite apenas esta seção
+  ============================================================ -->
+  <script>
+    const CONFIG = {
+      // Dados da empresa
+      NOME_EMPRESA:        "INGRID DA CONCEIÇÃO RODRIGUES",
+      CNPJ:                "62.365.485/0001-74",
+      DATA_ABERTURA:       "22/08/2025",
+      NATUREZA_JURIDICA:   "Microempreendedor Individual (MEI) | Empresário Individual | ATIVA | Matriz",
+
+      // Contato
+      TELEFONE:            "(62) 9426-37703",
+      WHATSAPP:            "5562942637703", // somente números, com DDI
+      EMAIL:               "ingrid.conceicao.r@gmail.com",
+      EMAIL_CONTATO:       "contato@62365485ingriddaconceicaorodrigues.com",
+      INSTAGRAM_URL:       "", // deixe vazio se não tiver
+
+      // Endereço
+      LOGRADOURO:          "R SANTA CATARINA",
+      NUMERO:              "21",
+      BAIRRO:              "VILA JARDIM SÃO JUDAS TADEU",
+      CIDADE:              "Goiânia",
+      ESTADO:              "GO",
+      CEP:                 "74.685-440",
+
+      // Textos
+      MISSAO_1:            "Oferecer refeições preparadas com carinho, sabor e qualidade, levando praticidade e bem-estar à mesa de cada cliente no conforto do seu lar.",
+      MISSAO_2:            "Acreditamos que uma boa refeição é um ato de cuidado. Por isso, selecionamos os melhores ingredientes e preparamos cada prato com dedicação e higiene.",
+
+      QUEM_SOMOS_1:        "Somos uma empresa goiana especializada no fornecimento de alimentos preparados para consumo domiciliar, nascida em Goiânia – GO.",
+      QUEM_SOMOS_2:        "Nascemos com o propósito de levar refeições saborosas e nutritivas até você, com um atendimento próximo, humano e personalizado.",
+      QUEM_SOMOS_3:        "Trabalhamos com ingredientes cuidadosamente selecionados, priorizando sabor, higiene, qualidade e o conforto de receber sua refeição em casa.",
+      QUEM_SOMOS_4:        "Nosso compromisso é construir uma relação de confiança com cada cliente, entregando sempre uma experiência gastronômica positiva e um serviço pontual.",
+
+      // Política de privacidade — atividade da empresa
+      ATIVIDADE:           "alimentação preparada para consumo domiciliar",
+
+      // Verificação Facebook (deixe vazio se não precisar)
+      FACEBOOK_VERIFICATION: "z36gac33zdotuev9ixlq62b9t8lvgd",
+
+      // Cor principal (hex)
+      COR_PRINCIPAL: "#7C3AED",
+    };
+  </script>
+  <!-- ============================================================
+       FIM DAS CONFIGURAÇÕES
+  ============================================================ -->
+
+  <title id="page-title"></title>
+  <meta id="meta-description" name="description" content="" />
+  <meta id="meta-fb" name="facebook-domain-verification" content="" />
+  <meta id="og-title" property="og:title" content="" />
+  <meta id="og-description" property="og:description" content="" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cor: #7C3AED;
+      --cor-light: #EDE9FE;
+      --bg: #F5F0FF;
+      --white: #ffffff;
+      --text: #1e1b2e;
+      --muted: #6b7280;
+      --radius: 16px;
+      --shadow: 0 2px 16px rgba(124,58,237,0.08);
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--white);
+      border-bottom: 1px solid #ede9fe;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .topbar-left .house { font-size: 18px; }
+    .topbar-domain { font-weight: 700; color: var(--text); font-size: 13px; }
+    .btn-login {
+      background: transparent;
+      border: 1.5px solid var(--cor);
+      color: var(--cor);
+      padding: 6px 20px;
+      border-radius: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .btn-login:hover { background: var(--cor); color: #fff; }
+
+    /* ── WRAPPER ── */
+    .wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px 28px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+    }
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--cor);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -1px;
+    }
+    .hero h1 {
+      font-size: clamp(18px, 4vw, 26px);
+      font-weight: 900;
+      color: var(--text);
+      letter-spacing: -0.5px;
+    }
+    .hero .cnpj {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* ── MISSÃO ── */
+    .missao h2 {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--cor);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .missao p { font-size: 15px; color: #374151; line-height: 1.7; margin-bottom: 10px; }
+    .missao p:last-of-type { margin-bottom: 20px; }
+    .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--cor);
+      color: #fff;
+      border: none;
+      padding: 11px 22px;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity .2s;
+    }
+    .btn-primary:hover { opacity: .88; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--muted);
+      border: 1.5px solid #d1d5db;
+      padding: 11px 22px;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all .2s;
+    }
+    .btn-secondary:hover { border-color: var(--cor); color: var(--cor); }
+
+    /* ── GRID QUEM SOMOS + CONTATO ── */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    .quem-somos h2, .contato h2, .instagram h2 {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--cor);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .quem-somos p { font-size: 14px; color: #374151; line-height: 1.7; margin-bottom: 10px; }
+
+    /* CONTATO */
+    .contato-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: #374151;
+      line-height: 1.5;
+    }
+    .contato-item .icon { font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+    .btn-whatsapp {
+      background: var(--cor);
+      color: #fff;
+      border: none;
+      padding: 13px 0;
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      width: 100%;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      margin-top: 16px;
+      transition: opacity .2s;
+    }
+    .btn-whatsapp:hover { opacity: .88; }
+
+    /* INSTAGRAM */
+    .instagram { }
+    .instagram p { font-size: 14px; color: var(--muted); }
+    .instagram a { color: var(--cor); font-weight: 700; text-decoration: none; }
+
+    /* ── POLÍTICA ── */
+    .politica-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 6px;
+    }
+    .politica-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--cor);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .politica-header h2 {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--cor);
+      text-transform: uppercase;
+    }
+    .politica-header p { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .politica-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    @media (max-width: 500px) { .politica-grid { grid-template-columns: 1fr; } }
+    .politica-item {
+      background: #faf8ff;
+      border: 1px solid #ede9fe;
+      border-radius: 12px;
+      padding: 18px 16px;
+    }
+    .politica-item h3 {
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--text);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+    .politica-item p { font-size: 13px; color: #4b5563; line-height: 1.65; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.8;
+      padding: 0 16px 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ── MISC ── */
+    @media (max-width: 480px) {
+      .card { padding: 24px 18px; }
+      .btns { flex-direction: column; }
+      .btn-primary, .btn-secondary { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <span class="house">🏠</span>
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;">PÁGINA PÚBLICA</div>
+        <div class="topbar-domain" id="topbar-domain"></div>
+      </div>
+    </div>
+    <button class="btn-login">LOGIN</button>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="wrapper">
+
+    <!-- HERO -->
+    <div class="card hero">
+      <div class="avatar" id="avatar-letter"></div>
+      <h1 id="hero-nome"></h1>
+      <p class="cnpj" id="hero-cnpj"></p>
+    </div>
+
+    <!-- MISSÃO -->
+    <div class="card missao">
+      <h2>NOSSA MISSÃO</h2>
+      <p id="missao-1"></p>
+      <p id="missao-2"></p>
+      <div class="btns">
+        <a id="btn-whatsapp-missao" class="btn-primary" target="_blank" rel="noopener">
+          💬 CONVERSAR AGORA
+        </a>
+        <a id="btn-instagram-missao" class="btn-secondary" target="_blank" rel="noopener">
+          📷 <span id="instagram-label-missao"></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- QUEM SOMOS + CONTATO -->
+    <div class="grid-2">
+      <div class="card quem-somos">
+        <h2>QUEM SOMOS</h2>
+        <p id="qs-1"></p>
+        <p id="qs-2"></p>
+        <p id="qs-3"></p>
+        <p id="qs-4"></p>
+      </div>
+
+      <div>
+        <div class="card contato" style="margin-bottom:24px;">
+          <h2>CONTATO</h2>
+          <div class="contato-item">
+            <span class="icon">📞</span>
+            <span id="c-telefone"></span>
+          </div>
+          <div class="contato-item">
+            <span class="icon">✉️</span>
+            <span id="c-email"></span>
+          </div>
+          <div class="contato-item">
+            <span class="icon">📍</span>
+            <span id="c-endereco"></span>
+          </div>
+          <a id="btn-whatsapp-contato" class="btn-whatsapp" target="_blank" rel="noopener">
+            FALAR NO WHATSAPP
+          </a>
+        </div>
+
+        <div class="card instagram">
+          <h2>📷 INSTAGRAM</h2>
+          <p id="instagram-info"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- POLÍTICA DE PRIVACIDADE -->
+    <div class="card">
+      <div class="politica-header">
+        <div class="politica-icon">🛡️</div>
+        <div>
+          <h2>POLÍTICA DE PRIVACIDADE</h2>
+          <p id="politica-subtitulo"></p>
+        </div>
+      </div>
+      <div class="politica-grid">
+        <div class="politica-item">
+          <h3>1. FINALIDADE</h3>
+          <p id="pol-1"></p>
+        </div>
+        <div class="politica-item">
+          <h3>2. DADOS COLETADOS</h3>
+          <p>Podemos coletar nome, telefone, e-mail, endereço de entrega e informações necessárias para responder solicitações, organizar pedidos e manter comunicação com clientes.</p>
+        </div>
+        <div class="politica-item">
+          <h3>3. USO DOS DADOS</h3>
+          <p>Os dados são usados para atendimento, envio de informações, confirmação de pedidos, suporte ao cliente, cumprimento de obrigações legais e melhoria contínua dos serviços prestados.</p>
+        </div>
+        <div class="politica-item">
+          <h3>4. COMPARTILHAMENTO</h3>
+          <p>As informações não são vendidas. O compartilhamento ocorre apenas quando necessário para execução do serviço, cumprimento legal ou proteção de direitos da empresa e dos clientes.</p>
+        </div>
+        <div class="politica-item">
+          <h3>5. DIREITOS LGPD</h3>
+          <p>O titular pode solicitar confirmação de tratamento, acesso, correção, exclusão, portabilidade, informação sobre compartilhamento e revogação de consentimento, conforme a LGPD.</p>
+        </div>
+        <div class="politica-item">
+          <h3>6. ARMAZENAMENTO</h3>
+          <p>Os dados são mantidos pelo período necessário às finalidades descritas, observando prazos legais, segurança das informações e necessidades operacionais do atendimento.</p>
+        </div>
+        <div class="politica-item">
+          <h3>7. ALTERAÇÕES</h3>
+          <p>Esta política poderá ser atualizada para refletir mudanças legais, operacionais ou de atendimento. Recomenda-se consultar esta página periodicamente.</p>
+        </div>
+        <div class="politica-item">
+          <h3>8. CONTATO</h3>
+          <p id="pol-8"></p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer-text"></footer>
+
+  <script>
+    // Aplica cor principal
+    document.documentElement.style.setProperty('--cor', CONFIG.COR_PRINCIPAL);
+
+    // Helpers
+    const $ = id => document.getElementById(id);
+    const endereco = `${CONFIG.LOGRADOURO}, nº ${CONFIG.NUMERO}, bairro ${CONFIG.BAIRRO}, ${CONFIG.CIDADE} – ${CONFIG.ESTADO}, CEP ${CONFIG.CEP}`;
+    const emailsContato = [CONFIG.EMAIL_CONTATO, CONFIG.EMAIL].filter(Boolean).join(', ');
+    const nomeSlug = CONFIG.NOME_EMPRESA.toLowerCase().replace(/\s+/g, '').replace(/[^a-z0-9]/g, '');
+    const anoAtual = new Date().getFullYear();
+    const primeiraLetra = CONFIG.NOME_EMPRESA.trim()[0].toUpperCase();
+
+    // Meta tags
+    $('page-title').textContent = `${CONFIG.NOME_EMPRESA} — Página Pública`;
+    $('meta-description').content = `${CONFIG.QUEM_SOMOS_1}`;
+    if (CONFIG.FACEBOOK_VERIFICATION) $('meta-fb').content = CONFIG.FACEBOOK_VERIFICATION;
+    $('og-title').content = CONFIG.NOME_EMPRESA;
+    $('og-description').content = CONFIG.MISSAO_1;
+
+    // Topbar
+    $('topbar-domain').textContent = `${nomeSlug}.com`;
+
+    // Hero
+    $('avatar-letter').textContent = primeiraLetra;
+    $('hero-nome').textContent = CONFIG.NOME_EMPRESA;
+    $('hero-cnpj').textContent = `CNPJ: ${CONFIG.CNPJ}`;
+
+    // Missão
+    $('missao-1').textContent = CONFIG.MISSAO_1;
+    $('missao-2').textContent = CONFIG.MISSAO_2;
+    $('btn-whatsapp-missao').href = `https://wa.me/${CONFIG.WHATSAPP}`;
+    if (CONFIG.INSTAGRAM_URL) {
+      $('btn-instagram-missao').href = CONFIG.INSTAGRAM_URL;
+      $('instagram-label-missao').textContent = 'INSTAGRAM';
+    } else {
+      $('btn-instagram-missao').style.cursor = 'default';
+      $('instagram-label-missao').textContent = 'INSTAGRAM INDISPONÍVEL';
+    }
+
+    // Quem Somos
+    $('qs-1').textContent = CONFIG.QUEM_SOMOS_1;
+    $('qs-2').textContent = CONFIG.QUEM_SOMOS_2;
+    $('qs-3').textContent = CONFIG.QUEM_SOMOS_3;
+    $('qs-4').textContent = CONFIG.QUEM_SOMOS_4;
+
+    // Contato
+    $('c-telefone').textContent = CONFIG.TELEFONE;
+    $('c-email').innerHTML = `${CONFIG.EMAIL_CONTATO}<br>${CONFIG.EMAIL}`;
+    $('c-endereco').textContent = endereco;
+    $('btn-whatsapp-contato').href = `https://wa.me/${CONFIG.WHATSAPP}`;
+
+    // Instagram
+    if (CONFIG.INSTAGRAM_URL) {
+      $('instagram-info').innerHTML = `<a href="${CONFIG.INSTAGRAM_URL}" target="_blank">${CONFIG.INSTAGRAM_URL}</a>`;
+    } else {
+      $('instagram-info').textContent = 'Perfil não informado no cadastro. O link será disponibilizado quando a empresa fornecer a URL oficial.';
+    }
+
+    // Política
+    $('politica-subtitulo').textContent = `${CONFIG.CNPJ} ${CONFIG.NOME_EMPRESA} — ${endereco}`;
+    $('pol-1').textContent = `${CONFIG.CNPJ} ${CONFIG.NOME_EMPRESA} utiliza esta política para informar, com transparência, como trata dados pessoais relacionados ao atendimento, contato comercial e prestação de serviços de ${CONFIG.ATIVIDADE}.`;
+    $('pol-8').textContent = `Para dúvidas ou solicitações sobre privacidade, entre em contato pelo e-mail ${emailsContato} ou pelo telefone/WhatsApp ${CONFIG.TELEFONE}.`;
+
+    // Footer
+    $('footer-text').textContent = `${CONFIG.CNPJ} ${CONFIG.NOME_EMPRESA} | CNPJ ${CONFIG.CNPJ} | Abertura ${CONFIG.DATA_ABERTURA} | ${CONFIG.NATUREZA_JURIDICA} | ${endereco} | ${emailsContato} | ${CONFIG.TELEFONE} | © ${anoAtual} ${CONFIG.NOME_EMPRESA}. Todos os direitos reservados.`;
+  </script>
+</body>
+</html>
